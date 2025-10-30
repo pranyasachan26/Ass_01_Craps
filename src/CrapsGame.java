@@ -52,12 +52,22 @@ public class CrapsGame {
                 }
             }
 
-            // Prompt to play again
-            System.out.print("\nWould you like to play again? (y/n): ");
-            String response = input.next().toLowerCase();
-            if (!response.equals("y")) {
-                playAgain = false;
-                System.out.println("Thanks for playing Craps!");
+            // Prompt to play again with input validation
+            String response;
+            while (true) {
+                System.out.print("\nWould you like to play again? (y/n): ");
+                response = input.next().toLowerCase();
+
+                if (response.equals("y")) {
+                    playAgain = true;
+                    break;
+                } else if (response.equals("n")) {
+                    playAgain = false;
+                    System.out.println("Thanks for playing Craps!");
+                    break;
+                } else {
+                    System.out.println("Invalid input. Please enter 'y' or 'n'.");
+                }
             }
         }
 
